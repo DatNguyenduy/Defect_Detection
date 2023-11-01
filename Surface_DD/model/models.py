@@ -79,15 +79,14 @@ class Decoder(Module):
 class UNet(Module):
 	def __init__(self, encChannels=(3, 16, 32, 64),
 		 decChannels=(64, 32, 16),
-		 nb_classes=1, 
 		 retainDim=True,
-		 input_image_height = 128,
+		 input_image_height = 256,
 		 input_image_width = 128):
 		super().__init__()
 		self.encoder = Encoder(encChannels)
 		self.decoder = Decoder(decChannels)
 		# initialize the regression head and store the class variables
-		self.head = nn.Conv2d(decChannels[-1], nb_classes, 1)
+		self.head = nn.Conv2d(decChannels[-1], 1, 3)
 		self.retainDim = bool(retainDim)
 		self.outSize = (input_image_height,input_image_width)
 	

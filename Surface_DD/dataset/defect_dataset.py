@@ -4,9 +4,9 @@ from PIL import Image
 from torch.utils.data import Dataset
 import torch
 
-import sys
-sys.path.append("/Users/user/Victor2023/Defect_Detection/Surface_DD/utils")
-from utils import get_all_item_label_path
+# import sys
+# sys.path.append("..")
+from utils.utils import get_all_item_label_path
 
 
 
@@ -28,4 +28,4 @@ class DefectDataset(Dataset):
         label = Image.open(label_path)
         label_array = np.array(label.resize((self.img_width,self.img_height),resample=Image.BICUBIC))/255
 
-        return (torch.tensor(img_array),torch.tensor(label_array))   
+        return (torch.tensor([img_array]),torch.tensor([label_array]))   

@@ -1,0 +1,17 @@
+{   
+    "results_path":"Dat_results",
+    "batch_size":64,
+    "num_workers":0,
+    "learningrate":1e-3,
+    "weight_decay":1e-5,
+    "nb_epochs":100,
+    "data_path": "D:\\APPLY_JOB_2023\\Data\\KolektorSDD-boxes",
+    "image_size": [256,128],
+    "unet_config":{
+        "encChannels": [3, 16, 32, 64],
+        "decChannels": [64, 32, 16],
+        "retainDim": "True",
+        "input_image_height":256,
+        "input_image_width":128
+    }
+}
